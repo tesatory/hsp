@@ -1,0 +1,2 @@
+# hsp
+Hierarchical Self-Play
