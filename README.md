@@ -22,7 +22,7 @@ First, install [rllab](https://github.com/rll/rllab) with MuJoCo following its i
 ```
 conda install -c pytorch pytorch==0.3.1
 pip install visdom
-pip install git+https://github.com/tesatory/mazebase.git
+pip install git+git://github.com/tesatory/mazebase.git@v0.1
 export OMP_NUM_THREADS=1
 ```
 

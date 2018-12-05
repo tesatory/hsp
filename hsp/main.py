@@ -96,8 +96,6 @@ parser.add_argument('--sp_persist_success', default=False, action='store_true',
                     help='only persist if prev success')
 parser.add_argument('--sp_persist_separate', default=False, action='store_true',
                     help='keep Alice and Bob trajectory separate')
-parser.add_argument('--sp_finish_mode', default='easy', type=str,
-                    help='self-play finish mode: easy | hard')
 parser.add_argument('--sp_alice_entr', default=0.0, type=float,
                     help='entropy regularization for Alice')
 parser.add_argument('--sp_extra_action', default=False, action='store_true',

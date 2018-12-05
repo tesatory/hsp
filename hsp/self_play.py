@@ -322,26 +322,14 @@ class SelfPlayWrapper(EnvWrapper):
             self.bob_last_state = self.env.get_state()
 
             if not done:
-                # check if Bob succeeded
-                diff = self.get_bob_diff(obs_internal, self.target_obs)
-
-                # different ways to finish Bob's turn
                 if self.args.sp_asym:
                     reward = -self.args.sp_reward_coeff
-                    if bool(diff <= self.args.sp_state_thres):
-                        self.success = True
-                        done = True
-                elif self.args.sp_finish_mode == 'easy':
-                    # TODO
-                    self.success = self.success or bool(diff <= self.args.sp_state_thres)
-                    if not bool(diff <= self.args.sp_state_thres):
-                        reward = -self.args.sp_reward_coeff
-                elif self.args.sp_finish_mode == 'simple':
-                    if bool(diff <= self.args.sp_state_thres):
-                        self.success = True
-                        done = True
-                else:
-                    raise RuntimeError("wrong finish mode")
+
+                # check if Bob succeeded
+                diff = self.get_bob_diff(obs_internal, self.target_obs)
+                if bool(diff <= self.args.sp_state_thres):
+                    self.success = True
+                    done = True
 
             self.stat['reward_bob'] += reward
 
